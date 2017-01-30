@@ -1,0 +1,61 @@
+net: "/home/deep/rahim/PGM/Final/feature/deep/Lenet/train_val.prototxt"
+# test_iter specifies how many forward passes the test should carry out.
+# In the case of MNIST, we have test batch size 100 and 50 test iterations,covering the full 4458 testing images.
+#16k test(validation)/250 batch=64
+test_iter: 64
+
+# Carry out testing every 500 training iterations.
+###176k train,100 batch size>>>1700=1epoch
+###test interval=5k means 3*ecpoch
+test_interval: 5000
+
+# The base learning rate, momentum and the weight decay of the network.
+base_lr: 0.001
+
+#momentum
+#This parameter indicates how much of the previous weight will be retained in the new calculation. This value is a real fraction.
+momentum: 0.95
+
+#weight_decay
+#This parameter indicates the factor of (regularization) penalization of large weights. This value is a often a real fraction.
+weight_decay: 0.0005
+
+lr_policy: "fixed"
+gamma: 0.1
+#power: 0.75
+
+stepsize: 100000
+
+# Display every 50 iterations
+display: 2000
+max_iter: 500000
+
+type: "AdaDelta"
+delta: 1e-6
+
+
+snapshot: 5000
+snapshot_prefix: "/home/deep/rahim/PGM/Final/feature/deep/Lenet/out/snapshot"
+solver_mode: GPU
+
+
+
+# In the case of MNIST, we have test batch size 100 and 100 test iterations,
+# covering the full 10,000 testing images.
+#test_iter: 100
+
+#test_interval: 500
+
+#base_lr: 0.01
+#momentum: 0.9
+#weight_decay: 0.0005
+
+#lr_policy: "inv"
+#gamma: 0.0001
+#power: 0.75
+
+#display: 100
+
+#max_iter: 10000
+
+#solver_mode: GPU
